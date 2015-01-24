@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FSE Chat-Home</title>
+</head>
+
+<body>
+{% for error in errors %}
+<p style="color:red">
+{{error}}
+</p>
+{% endfor %}
+
+<form action="/intro/enter-chat" method="post">
+  Username: <input type="text" name="username">
+               <input type="submit" text="Enter Chat" value="Enter Chat">
+  {% csrf_token %}
+</form>
+</body>
+</html>
