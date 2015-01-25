@@ -4,18 +4,12 @@ from django.http import HttpResponse
 import json
 from intro.models import *
 
-# The action for the 'intro/hello-world' route.
 def home(request):
-    # render takes: (1) the request,
-    #               (2) the name of the view to generate, and
-    #               (3) a dictionary of name-value pairs of data to be
-    #                   available to the view template.
     return render(request, 'home.html', {})
 
 def enter_chat(request):
     errors = []
     context = {}
-    print request.POST
 
     if not 'username' in request.POST or not request.POST['username']:
         errors.append('Username required')

@@ -47,4 +47,4 @@ function handleResponse() {
 }
 
 // causes the sendRequest function to run every 10 seconds
-window.setInterval(sendRequest, 10000);
+window.setInterval(sendRequest, 1000);
