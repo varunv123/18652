@@ -46,5 +46,5 @@ function handleResponse() {
     }
 }
 
-// causes the sendRequest function to run every 1 seconds
-window.setInterval(sendRequest, 1000);
+// causes the sendRequest function to run every 0.5 seconds
+window.setInterval(sendRequest, 500);
