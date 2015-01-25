@@ -1,6 +1,6 @@
 var req;
 
-// Sends a new request to update the to-do list
+// Sends a new request to update the message list
 function sendRequest() {
     if (window.XMLHttpRequest) {
         req = new XMLHttpRequest();
@@ -19,17 +19,17 @@ function handleResponse() {
         return;
     }
 
-    // Removes the old to-do list items
+    // Removes the old messages
     var list = document.getElementById("message-list");
     while (list.hasChildNodes()) {
         list.removeChild(list.firstChild);
     }
 
     // Parses the response to get a list of JavaScript objects for 
-    // the items.
+    // the messages.
     var items = JSON.parse(req.responseText);
     console.log(items)
-    // Adds each new todo-list item to the list
+    // Adds each new message to the list
     for (var i = 0; i < items.length; ++i) {
         // Extracts the item id and text from the response
         var messageText = items[i]["fields"]["text"];
@@ -37,14 +37,14 @@ function handleResponse() {
         var messageUser = items[i]["fields"]["username"];
 
   
-        // Builds a new HTML list item for the todo-list item
+        // Builds a new HTML list item for messages
         var newItem = document.createElement("li");
         console.log(messageTime)
         newItem.innerHTML = messageTime + ", " + messageUser + ": " +  messageText;
-        // Adds the todo-list item to the HTML list
+        // Adds the message to the HTML list
         list.appendChild(newItem);
     }
 }
 
-// causes the sendRequest function to run every 10 seconds
+// causes the sendRequest function to run every 1 seconds
 window.setInterval(sendRequest, 1000);
